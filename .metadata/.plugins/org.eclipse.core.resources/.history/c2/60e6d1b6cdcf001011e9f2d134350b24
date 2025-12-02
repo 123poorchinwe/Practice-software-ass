@@ -1,0 +1,15 @@
+
+public class Main {
+	public static void main(String[] args) {
+        Book b1 = new Book("The Great Gatsby", "Scribner", 1925, "F. Scott Fitzgerald", 180);
+        Book b2 = new Book("1984", "Secker & Warburg", 1949, "George Orwell", 328);
+
+        Magazine m1 = new Magazine("National Geographic", "National Geographic Society", 2023, 5, "May");
+        Magazine m2 = new Magazine("Time", "Time Inc.", 2024, 12, "December");
+
+        b1.displayDetails();
+        b2.displayDetails();
+        m1.displayDetails();
+        m2.displayDetails();
+    }
+}
