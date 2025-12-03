@@ -9,13 +9,12 @@ public class Book extends LibraryItem {
     }
     @Override
     public void displayDetails() {
-        System.out.println("Book Details:");
-        System.out.println("Title: " + title);
-        System.out.println("Publisher: " + publisher);
-        System.out.println("Year: " + year);
+        System.out.println("Book's Title: " + title);
+        System.out.println("Book's Publisher: " + publisher);
+        System.out.println("Publish Year: " + year);
         System.out.println("Author: " + author);
         System.out.println("Number of Pages: " + numPages);
-        System.out.println(); 
+        System.out.println("---------------------------"); 
     }
 }
 

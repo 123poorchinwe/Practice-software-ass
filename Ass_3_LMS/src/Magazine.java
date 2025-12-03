@@ -9,12 +9,11 @@ public class Magazine extends LibraryItem{
     }
     @Override
     public void displayDetails() {
-        System.out.println("Magazine Details:");
-        System.out.println("Title: " + title);
-        System.out.println("Publisher: " + publisher);
-        System.out.println("Year: " + year);
-        System.out.println("Issue Number: " + issueNumber);
+        System.out.println("Magazine's Title: " + title);
+        System.out.println("Magazine's Publisher: " + publisher);
+        System.out.println("Publish Year: " + year);
+        System.out.println("IssueNumber: " + issueNumber);
         System.out.println("Month: " + month);
-        System.out.println();  
+        System.out.println("---------------------------");  
     }
 }

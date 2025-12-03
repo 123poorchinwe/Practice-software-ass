@@ -1,11 +1,11 @@
 
 public class Main {
 	public static void main(String[] args) {
-        Book b1 = new Book("b", "b", 1, "b", 1);
-        Book b2 = new Book("v", "v", 2, "v", 2);
+        Book b1 = new Book("GIS Princples", "Salzburg Publisher",2025, "Omid", 12);
+        Book b2 = new Book("Java Practice", "Austria Library", 2024, "Reza", 22);
 
-        Magazine m1 = new Magazine("d", "d", 3, 3, "d");
-        Magazine m2 = new Magazine("t", "t", 4, 4, "t");
+        Magazine m1 = new Magazine("Salzburg Today", "Austria Newspaper", 2020, 1, "April");
+        Magazine m2 = new Magazine("Outlet Total", "Bestsecret", 2026, 2, "January");
 
         b1.displayDetails();
         b2.displayDetails();
