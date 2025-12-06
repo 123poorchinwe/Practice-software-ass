@@ -19,12 +19,12 @@ public class Main {
         
     
         System.out.println("Is published before 2025");
-        System.out.println("Book1: " + b1.title + " -- " + b1.isPublishedBefore(2025));
-        System.out.println("Book2: " + b2.title + " -- " + b2.isPublishedBefore(2025));
-        System.out.println("Magazine1: " + m1.title + " -- " + m1.isPublishedBefore(2025));
-        System.out.println("Magazine2: " +  m2.title + " -- " + m2.isPublishedBefore(2025));
-        System.out.println("DVD1: " +  d1.title + " -- " + d1.isPublishedBefore(2025));
-        System.out.println("DVD2: " +  d2.title + " -- " + d2.isPublishedBefore(2025));
+        System.out.println("Book1: " + b1.title + "--" + b1.isPublishedBefore(2025));
+        System.out.println("Book2: " + b2.title + "--" + b2.isPublishedBefore(2025));
+        System.out.println("Magazine1: " + m1.title + "--" + m1.isPublishedBefore(2025));
+        System.out.println("Magazine2: " +  m2.title + "--" + m2.isPublishedBefore(2025));
+        System.out.println("DVD1: " +  d1.title + "--" + d1.isPublishedBefore(2025));
+        System.out.println("DVD2: " +  d2.title + "--" + d2.isPublishedBefore(2025));
         
     }
 }

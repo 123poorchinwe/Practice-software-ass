@@ -10,7 +10,4 @@ public abstract class LibraryItem {
     }
 
     public abstract void displayDetails();
-    public boolean isPublishedBefore(int year) {
-        return this.year < year;
-    }
 }
