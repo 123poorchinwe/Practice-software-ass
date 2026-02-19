@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Goalkeeper {
+	private String name;
+    private int score=0;
+    Scanner scanner =new Scanner(System.in);
+    public Goalkeeper(String name) {
+       
+        this.name = name;
+        
+    }
+    public String getName() {
+    	return this.name;
+    }
+    public int getScore() {
+    	return this.score;
+    }
+    public int addScore() {
+    	return this.score=this.score+1;
+	 
+    }
+    public int chooseDirection() {
+    	System.out.println(this.name+"IT IS YOUR TURN !1,2,3!");
+    	int dir=scanner.nextInt();
+    	return dir;
+    }
+}

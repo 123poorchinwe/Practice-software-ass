@@ -1,0 +1,11 @@
+
+public class Main{
+	public static  void main(String args) {
+		 Shoooter s1=new Shoooter("mimi");
+		 Goalkeeper g1=new Goalkeeper("yizhier");
+		 System.out.println(g1.getName());
+	}
+
+ 
+}
+

@@ -1,0 +1,66 @@
+import java.util.Random;
+
+public class Map {
+	//map's size
+	private int size;
+	//check the wall
+    private boolean[][] walls;
+    //get the treasure
+    private boolean[][] treasures;
+    public Map(int size){
+    	this.size=size;
+
+        walls=new boolean[size][size];
+        treasures=new boolean[size][size];
+        
+        Random r =new Random();
+        //wall can't be set at (0,0) and nearby(1,0) and (0,1)
+        for(int i=0; i<size; i++) {
+        	//random position
+            int wx= r.nextInt(size);
+            int wy= r.nextInt(size);
+            if (!((wx==0&&wy==0)||(wx==1&&wy==0)||(wx==0&&wy==1))) {
+            	walls[wx][wy]=true;
+            }
+        }
+        //4 treasure
+        //can't be set at (0,0) and nearby(1,0) and (0,1)
+        for(int i=0; i<size/2; i++) {
+            int tx= r.nextInt(size);
+            int ty= r.nextInt(size);
+            if (!((tx==0&&ty==0)||(tx==1&&ty==0)||(tx==0&&ty==1))) {
+            	treasures[tx][ty]=true;
+            }
+        
+           }
+        }
+    
+    //get the size of the map
+    public int getSize() {
+        return size;
+    }
+    // check weather it is a wall
+    public boolean isWall(int x, int y) {
+        return walls[x][y];
+    }
+//check weather it is a treasure
+    public boolean hasTreasure(int x, int y) {
+        return treasures[x][y];
+    }
+    //get the treasure and remove the position as a treasure
+    public void removeTreasure(int x, int y) {
+        treasures[x][y] = false;
+    }
+//check weather all treasures get
+    public boolean allTreasuresGet() {
+        for(int i=0;i<size;i++) {
+            for(int j=0;j<size;j++) {
+                if(treasures[i][j]) 
+                	return false;
+            }
+        }
+        return true;
+    }
+    
+
+}

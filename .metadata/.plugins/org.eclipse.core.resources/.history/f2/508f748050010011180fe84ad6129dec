@@ -1,0 +1,55 @@
+
+public class Player {
+		private String name;
+		private int PlayerX;
+		private int PlayerY;
+		private int energy;
+		 public Player(String name, int preEnergy) {
+		        this.name = name;
+		        this.PlayerX = 0;
+		        this.PlayerY = 0;
+		        this.energy = preEnergy;
+		    }
+		 public void moveLeft() {
+		        this.PlayerX = this.PlayerX - 1;
+		    }
+		    
+		    public void moveRight() {
+		        this.PlayerX = this.PlayerX + 1;
+		    }
+		    
+		 public void moveUp() {
+		        this.PlayerY = this.PlayerY + 1;
+		    }
+		    
+		    public void moveDown() {
+		        this.PlayerY = this.PlayerY - 1;
+		    }
+		    
+		    public int getPlayerX() {
+		        return this.PlayerX;
+		    }
+		    
+		    public int getPlayerY() {
+		        return this.PlayerY;
+		    }
+		    
+		    public String getName() {
+		        return this.name;
+		    }
+		    
+		    public int getEnergy() {
+		        return this.energy;
+		    }
+		    
+		    public void useEnergy() {
+		        if (this.energy > 0) {
+		            this.energy = this.energy - 1;
+		        }
+		    }
+		    
+		    public boolean hasEnergy() {
+		        return this.energy > 0;
+		    }
+		
+}

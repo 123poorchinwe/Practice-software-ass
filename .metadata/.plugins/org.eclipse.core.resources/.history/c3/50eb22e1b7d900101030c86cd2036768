@@ -1,0 +1,26 @@
+
+public class Main{
+	public static void main(String[] args) {
+		 Shooter s1=new Shooter("mimi");
+		 Goalkeeper g1=new Goalkeeper("yizhier");
+		 System.out.println(g1.getName());
+		 for(int i=0;i<=5;i++) {
+			 int shot=s1.chooseDirection();
+			 int dive=g1.chooseDirection();
+			 if(shot==dive)
+			 {
+				 System.out.println(g1.getName()+"was successfull");
+				 g1.addScore();
+			 }else {
+				 System.out.println(s1.getName()+"was successfull");
+				 s1.addScore();
+			 }
+			 System.out.println(g1.getName()+":"+g1.getScore());
+			 System.out.println(s1.getName()+":"+s1.getScore());
+		 
+		 }
+	}
+
+ 
+}
+

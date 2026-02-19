@@ -1,0 +1,140 @@
+// Main.java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // 设置游戏
+        System.out.println("欢迎来到迷宫逃生游戏！");
+        System.out.print("请输入你的名字: ");
+        String playerName = scanner.nextLine();
+        
+        System.out.print("迷宫大小 (默认8): ");
+        int mazeSize = scanner.nextInt();
+        
+        System.out.print("初始能量 (默认15): ");
+        int startEnergy = scanner.nextInt();
+        scanner.nextLine(); // 清除换行符
+        
+        // 创建游戏对象
+        Maze maze = new Maze(mazeSize);
+        Player player = new Player(playerName, startEnergy);
+        
+        boolean gameOver = false;
+        boolean win = false;
+        
+        System.out.println("\n" + player.getName() + "，游戏开始！");
+        System.out.println("你从位置(0, 0)开始");
+        System.out.println("找到出口(E)并逃出迷宫！");
+        System.out.println("控制：W=上, S=下, A=左, D=右, Q=退出");
+        System.out.println("每次移动消耗1点能量");
+        System.out.println("当前能量: " + player.getEnergy());
+        
+        // 游戏循环
+        while (!gameOver) {
+            System.out.println("\n" + player.getName() + "，你的位置: (" + player.getPlayerX() + ", " + player.getPlayerY() + ")");
+            System.out.println("能量: " + player.getEnergy());
+            
+            // 显示迷宫地图
+            System.out.println("迷宫地图 (P=" + player.getName() + ", X=墙, E=出口, .=空地)");
+            for (int y = maze.getSize() - 1; y >= 0; y--) {
+                for (int x = 0; x < maze.getSize(); x++) {
+                    if (x == player.getPlayerX() && y == player.getPlayerY()) {
+                        System.out.print("P ");
+                    } else if (maze.getTile(x, y).getIsExit()) {
+                        System.out.print("E ");
+                    } else if (maze.getTile(x, y).getIsWall()) {
+                        System.out.print("X ");
+                    } else {
+                        System.out.print(". ");
+                    }
+                }
+                System.out.println();
+            }
+            
+            System.out.print("移动 (W/A/S/D/Q): ");
+            String direction = scanner.nextLine().toUpperCase();
+            
+            if (direction.equals("Q")) {
+                System.out.println(player.getName() + "选择退出游戏");
+                break;
+            }
+            
+            int newX = player.getPlayerX();
+            int newY = player.getPlayerY();
+            boolean moved = false;
+            
+            if (direction.equals("W")) {
+                newY = player.getPlayerY() + 1;
+                if (maze.canMove(newX, newY)) {
+                    player.moveUp();
+                    moved = true;
+                } else {
+                    System.out.println("撞到墙了！不能往那边走！");
+                }
+            } else if (direction.equals("S")) {
+                newY = player.getPlayerY() - 1;
+                if (maze.canMove(newX, newY)) {
+                    player.moveDown();
+                    moved = true;
+                } else {
+                    System.out.println("撞到墙了！不能往那边走！");
+                }
+            } else if (direction.equals("A")) {
+                newX = player.getPlayerX() - 1;
+                if (maze.canMove(newX, newY)) {
+                    player.moveLeft();
+                    moved = true;
+                } else {
+                    System.out.println("撞到墙了！不能往那边走！");
+                }
+            } else if (direction.equals("D")) {
+                newX = player.getPlayerX() + 1;
+                if (maze.canMove(newX, newY)) {
+                    player.moveRight();
+                    moved = true;
+                } else {
+                    System.out.println("撞到墙了！不能往那边走！");
+                }
+            } else {
+                System.out.println("输入错误！请使用 W, A, S, D 或 Q");
+                continue;
+            }
+            
+            // 如果移动成功
+            if (moved) {
+                player.useEnergy();
+                
+                // 检查是否找到出口
+                Tile currentTile = maze.getTile(player.getPlayerX(), player.getPlayerY());
+                if (currentTile.getIsExit()) {
+                    gameOver = true;
+                    win = true;
+                }
+                
+                // 检查能量
+                if (!player.hasEnergy()) {
+                    gameOver = true;
+                    win = false;
+                }
+            }
+        }
+        
+        // 游戏结束
+        System.out.println("\n======= 游戏结束 =======");
+        if (win) {
+            System.out.println("恭喜 " + player.getName() + "！你成功逃出了迷宫！");
+        } else {
+            if (player.hasEnergy()) {
+                System.out.println(player.getName() + "选择退出游戏");
+            } else {
+                System.out.println(player.getName() + "的能量耗尽了！游戏失败");
+            }
+        }
+        System.out.println("最终位置: (" + player.getPlayerX() + ", " + player.getPlayerY() + ")");
+        System.out.println("剩余能量: " + player.getEnergy());
+        
+        scanner.close();
+    }
+}

@@ -1,0 +1,53 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		//understand the dir
+		Scanner s=new Scanner(System.in);
+		// maze size 8x8
+		Map map=new Map(8);
+        Player player= new Player(12);
+        //initial energy 12
+        Guard guard=new Guard(map.getSize());
+        //put all entities in a list
+        List<Entity> entities=new ArrayList<>();
+        entities.add(player);
+        entities.add(guard);
+        boolean gameOver =false;
+        while (!gameOver) {
+        	//player position
+        	//positions and energy now
+            System.out.println("Player position:("+player.getX()+", "+player.getY()+")");
+            System.out.println("Guard position:("+guard.getX()+", "+guard.getY()+")");
+            System.out.println("Energy:"+player.getEnergy());
+            System.out.print("Move(W/A/S/D/Q):");
+            String input= s.nextLine().toUpperCase();
+            //new position
+            char dir=input.charAt(0);
+            player.move(dir, map);
+            guard.move(dir, map);
+            //check if guard catch the player
+            if(player.getX()==guard.getX() && player.getY()==guard.getY()) {
+            	System.out.println("You were caught by the guard!!!");
+                gameOver=true;   
+                 }
+            //get all the treasures?
+            if(map.allTreasuresGet()) {
+            	System.out.println("You won!");
+                gameOver=true;
+            	
+            }
+            //if the energy left
+            if(player.getEnergy()<=0) {
+                System.out.println("No energy left!!");
+                gameOver = true;
+         }
+        }
+        s.close();
+    }
+		
+	
+
+}

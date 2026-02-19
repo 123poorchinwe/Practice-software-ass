@@ -1,0 +1,30 @@
+
+public class Main {
+	public static void main(String[] args) {
+        Book b1=new Book("GIS Princples", "Salzburg Publisher",2025, "Omid", 12);
+        Book b2=new Book("Java Practice", "Austria Library", 2024, "Reza", 22);
+
+        Magazine m1=new Magazine("Salzburg Today", "Austria Newspaper", 2020, 1, "April");
+        Magazine m2=new Magazine("Outlet Total", "Bestsecret", 2026, 2, "January");
+        
+        DVD d1=new DVD("DVD1", "yaya.", 2030, 120, "Big yaya");
+        DVD d2 =new DVD("DVD2", "qinwei", 2010, 145, "Great Qinwe");
+
+        b1.displayDetails();
+        b2.displayDetails();
+        m1.displayDetails();
+        m2.displayDetails();
+        d1.displayDetails();
+        d2.displayDetails();
+        
+    
+        System.out.println("Published before 2025?Ture or False?");
+        System.out.println("Book1: " + b1.title + " -- " + b1.isPublishedBefore(2025));
+        System.out.println("Book2: " + b2.title + " -- " + b2.isPublishedBefore(2025));
+        System.out.println("Magazine1: " + m1.title + " -- " + m1.isPublishedBefore(2025));
+        System.out.println("Magazine2: " +  m2.title + " -- " + m2.isPublishedBefore(2025));
+        System.out.println("DVD1: " +  d1.title + " -- " + d1.isPublishedBefore(2025));
+        System.out.println("DVD2: " +  d2.title + " -- " + d2.isPublishedBefore(2025));
+        
+    }
+}

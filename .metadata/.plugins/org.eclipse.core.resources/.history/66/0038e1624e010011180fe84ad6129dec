@@ -1,0 +1,28 @@
+
+public class Tile {
+	
+	private boolean isWall;
+    private boolean isExit;
+    
+    public Tile() {
+    	
+        this.isWall = false;
+        this.isExit = false;
+    }
+    
+    public void isWall(boolean isWall) {
+        this.isWall = isWall;
+    }
+    
+    public void isExit(boolean isExit) {
+        this.isExit = isExit;
+    }
+    
+    public boolean getIsWall() {
+        return this.isWall;
+    }
+    
+    public boolean getIsExit() {
+        return this.isExit;
+    }
+}

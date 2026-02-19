@@ -1,0 +1,36 @@
+import java.util.Random;
+
+public abstract class Guard extends Entity{
+	
+	public Guard(int size) {
+		super(0, 0);
+        Random r=new Random();
+        x=r.nextInt(size);
+        y=r.nextInt(size);
+	}
+	@Override
+	public void move(char direction, Map map) {
+		Random r=new Random();
+		int newX=x;
+        int newY=y;
+        
+        int dir=r.nextInt(4);
+        
+        if(dir==0) 
+        	newY++;
+        if(dir==1) 
+        	newY--;
+        if(dir==2) 
+        	newX--;
+        if(dir==3) 
+        	newX++;
+        
+        if(newX>=0 && newY>=0 && newX<map.getSize() && newY<map.getSize() && !map.isWall(newX, newY)) {
+        	x =newX;
+            y =newY;
+    
+             }
+        
+	}
+
+}

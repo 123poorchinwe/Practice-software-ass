@@ -1,0 +1,48 @@
+
+public class Maze {
+	 private Tile[][] grid;
+	    private int size;
+	    public Maze(int size) {
+	        this.size = size;
+	        this.grid = new Tile[size][size];
+	        
+	        for (int i = 0; i < size; i++) {
+	            for (int j = 0; j < size; j++) {
+	                this.grid[i][j] = new Tile();
+	            }
+	        }
+   
+	        int exitX, exitY;
+	        do {
+	            exitX = (int) (Math.random() * size);
+	            exitY = (int) (Math.random() * size);
+	        } while (exitX == 0 && exitY == 0);        
+	        this.grid[exitX][exitY].isExit(true);
+	        int wallCount = size * size / 5;
+	        for (int i = 0; i < wallCount; i++) {
+	            int wallX, wallY;
+	            do {
+	                wallX = (int) (Math.random() * size);
+	                wallY = (int) (Math.random() * size);
+	            } while ((wallX == 0 && wallY == 0) || this.grid[wallX][wallY].getIsExit());
+	            
+	            this.grid[wallX][wallY].isWall(true);
+	        }
+	    }
+	    public Tile getTile(int x, int y) {
+	        return this.grid[x][y];
+	    }
+	    public int getSize() {
+	        return this.size;
+	    }
+
+	    public boolean canMove(int x, int y) {
+	        if (x < 0 || x >= this.size || y < 0 || y >= this.size) {
+	            return false;
+	        }
+	        if (this.grid[x][y].getIsWall()) {
+	            return false;
+	        }
+	        return true;
+	    }
+}
