@@ -8,7 +8,7 @@ public class Main {
 		Scanner s=new Scanner(System.in);
 		// maze size 8x8
 		Map map=new Map(8);
-        Player player= new Player(24);
+        Player player= new Player(12);
         //initial energy 12
         Guard guard=new Guard(map.getSize());
         //put all entities in a list

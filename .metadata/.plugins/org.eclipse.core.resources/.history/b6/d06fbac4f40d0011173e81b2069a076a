@@ -1,4 +1,5 @@
 import java.util.Random;
+
 public class Map {
 	//map's size
 	private int size;
@@ -59,34 +60,6 @@ public class Map {
             }
         }
         return true;
-    }
-    //to show the current map,where is the wall, guard,treasure,and the player
-    public void display(Player player, Guard guard) {
-        for(int y=size-1; y>=0;y--) {
-            for(int x=0; x<size;x++) {
-// i can find the position of the player
-                if(x==player.getX()&&y==player.getY()) {
-                    System.out.print("P");
-                }
-             //show the guard
-                else if(x==guard.getX()&&y==guard.getY()) {
-                    System.out.print("G");
-                }
-               //show the wall
-                else if(walls[x][y]) {
-                    System.out.print("#");
-                }
-               //show the left treasure
-                else if(treasures[x][y]) {
-                    System.out.print("T");
-                }
-                // 空地
-                else{
-                    System.out.print(".");
-                }
-            }
-            System.out.println();
-        }
     }
     
 
